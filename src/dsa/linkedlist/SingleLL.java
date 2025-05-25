@@ -1,11 +1,14 @@
 package dsa.linkedlist;
 
 public class SingleLL {
+    private int size;
     private SNode head;
+
     public void insert(int data) {
         SNode newNode = new SNode(data);
         if ( head == null ) {
             head = newNode;
+            size = 1;
             return;
         }
         SNode temp = head;
@@ -13,6 +16,7 @@ public class SingleLL {
             temp = temp.next;
         }
         temp.next = newNode;
+        size++;
     }
     public int get(int index) {
         SNode newNode;
@@ -70,6 +74,7 @@ public class SingleLL {
         if( newNode.next != null) {
             newNode.next = newNode.next.next;
         }
+        size--;
     }
 
     public String toString() {
@@ -87,6 +92,10 @@ public class SingleLL {
         sb.append("]");
         return sb.toString();
     }
+    public int size() {
+        return size;
+    }
+
 
     public static void main(String[] args) {
         SingleLL sll = new SingleLL();
@@ -94,6 +103,7 @@ public class SingleLL {
         sll.insert(20);
         sll.insert(30);
         System.out.println(sll.toString());
+        System.out.println(sll.size());
         sll.remove(20);
         sll.remove(10);
         System.out.println(sll.toString());
@@ -104,5 +114,6 @@ public class SingleLL {
         System.out.println(sll.get(0));
         sll.set(5,50);
         System.out.println(sll.toString());
+        System.out.println(sll.size());
     }
 }
