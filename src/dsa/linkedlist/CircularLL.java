@@ -8,6 +8,7 @@ public class CircularLL {
         if ( tail == null) {
             tail = newNode;
             tail.next = tail;
+            size = 1;
             return;
         }
         else {
@@ -15,7 +16,41 @@ public class CircularLL {
             tail.next = newNode;
             tail = newNode;
         }
-        return;
+        size++;
+    }
+    public void remove(int data) {
+        if (tail == null) {
+            return;  // Empty list
+        }
+
+        SNode curr = tail.next;  // Start at head
+        SNode prev = tail;
+        boolean found = false;
+
+        do {
+            if (curr.data == data) {
+                found = true;
+                break;
+            }
+            prev = curr;
+            curr = curr.next;
+        } while (curr != tail.next);
+
+        if (!found) {
+            return;  // Data not found
+        }
+
+        if (curr == tail && curr == tail.next) {
+            // Only one node in the list
+            tail = null;
+        } else {
+            prev.next = curr.next;
+            if (curr == tail) {
+                // Deleting the tail
+                tail = prev;
+            }
+        }
+        size--;
     }
 
     public String toString() {
@@ -38,6 +73,9 @@ public class CircularLL {
         }
         return sb.toString();
     }
+    public int size() {
+        return size;
+    }
     public static void main(String[] args) {
         CircularLL cll = new CircularLL();
         cll.insert(10);
@@ -45,6 +83,9 @@ public class CircularLL {
         cll.insert(85);
         cll.insert(45);
         System.out.println(cll.toString());
+        cll.remove(45);
+        System.out.println(cll.toString());
+        System.out.println(cll.size());
 
     }
 }

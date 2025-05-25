@@ -20,7 +20,45 @@ public class DoubleLL {
         dnode.prev = temp;
         size++;
     }
-
+    public void remove(int data) {
+        if ( head == null ) {
+            return;
+        }
+        DNode node = head;
+        if ( node.data == data) {
+            head = node.next;
+            if ( head != null) {
+                head.prev = null;
+            }
+            size--;
+            return;
+        }
+        while (node != null && node.data != data) {
+            node = node.next;
+        }
+        if ( node == null) {
+            return;
+        }
+        if (node.prev != null) {
+            node.prev.next = node.next;
+        }
+        if (node.next != null) {
+            node.next.prev = node.prev;
+        }
+        size--;
+    }
+    public int get(int index) {
+        int count = 0;
+        DNode node = head;
+        if ( index < 0 || index >= size ) {
+            return -1;
+        }
+        while (count < index) {
+            node = node.next;
+            count++;
+        }
+        return node.data;
+    }
     public String toString() {
         if ( head == null) {
             return "[]";
@@ -49,5 +87,8 @@ public class DoubleLL {
         dll.insert(89);
         System.out.println(dll.toString());
         System.out.println(dll.size());
+        dll.remove(10);
+        System.out.println(dll.get(2));
+        System.out.println(dll.toString());
     }
 }
