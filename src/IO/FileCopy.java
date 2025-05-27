@@ -1,4 +1,4 @@
-package fileoperation;
+package IO;
 
 import java.io.*;
 import java.util.Scanner;

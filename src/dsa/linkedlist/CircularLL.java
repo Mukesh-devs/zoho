@@ -20,10 +20,10 @@ public class CircularLL {
     }
     public void remove(int data) {
         if (tail == null) {
-            return;  // Empty list
+            return;
         }
 
-        SNode curr = tail.next;  // Start at head
+        SNode curr = tail.next;
         SNode prev = tail;
         boolean found = false;
 
@@ -37,16 +37,14 @@ public class CircularLL {
         } while (curr != tail.next);
 
         if (!found) {
-            return;  // Data not found
+            return;
         }
 
         if (curr == tail && curr == tail.next) {
-            // Only one node in the list
             tail = null;
         } else {
             prev.next = curr.next;
             if (curr == tail) {
-                // Deleting the tail
                 tail = prev;
             }
         }
@@ -74,6 +72,7 @@ public class CircularLL {
         return sb.toString();
     }
     public int size() {
+
         return size;
     }
     public static void main(String[] args) {
