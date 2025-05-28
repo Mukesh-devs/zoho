@@ -1,18 +1,15 @@
 package dsa.recursion;
 
-public class RecursiveSum {
-    static void sum(int n, int sum) {
-        if ( n < 0) {
-            System.out.println(sum);
-            return;
+public class MultiplyRecursive {
+    static int multiply(int n, int m) {
+        if ( m == 0 ) {
+            return 0;
         }
-        sum = sum + n;
-        sum(n - 1, sum);
+        return n + multiply(n,m-1);
     }
-
     public static void main(String[] args) {
         long t1 = System.currentTimeMillis();
-        sum(10009,0);
+        System.out.println(multiply(12,34));
         long t2 = System.currentTimeMillis();
         System.out.println(t2-t1);
     }
