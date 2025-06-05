@@ -22,6 +22,7 @@ public class FibonacciSeries {
         int n = 5;
         int[] fib = new int[n +1];
         Arrays.fill(fib, -1);
-        System.out.println(fibo(fib,5));
+//        System.out.println(fibo(fib,5));
+        System.out.println(fibonacci(12));
     }
 }
