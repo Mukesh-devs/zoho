@@ -6,8 +6,8 @@ public class InfixToPrefix {
     public static void main(String[] args) {
         String str = "a + b - c * ( d + e )";
         System.out.println(str);
-
-        System.out.println(new StringBuilder(toPostfix(reverseString(str))).reverse());
+        String res = new StringBuilder(toPostfix(reverseString(str))).reverse().toString();
+        System.out.println(res);
     }
     static boolean isOperator(char c) {
         return "+-*/^".indexOf(c) != -1;
