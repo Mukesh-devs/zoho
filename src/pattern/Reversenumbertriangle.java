@@ -1,4 +1,4 @@
-package zoho.pattern;
+package pattern;
 
 public class Reversenumbertriangle {
     
