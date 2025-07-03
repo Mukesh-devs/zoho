@@ -6,38 +6,32 @@ public class StringToInteger_Atoi {
         System.out.println(stringtoInteger(s));
     }
     public static int stringtoInteger(String s) {
-        StringBuilder sb = new StringBuilder();
-
-        for ( int i = 0; i < s.length(); i++ ) {
-            if ( s.charAt(i) == ' ') continue;
-            if ( s.charAt(i) == '-' && sb.isEmpty() || s.charAt(i) == '+' && sb.isEmpty()) {
-                sb.append(s.charAt(i));
-                i++;
-                if ( i < s.length()  && s.charAt(i) == '0') {
-                    continue;
-                }
-            }
-            else if ( s.charAt(i) == '-' || s.charAt(i) == '+') {
-                break;
-            }
-            else if ( Character.isAlphabetic(s.charAt(i))) {
-                break;
-            }
-            else if ( Character.isDigit(s.charAt(i))) {
-                sb.append(s.charAt(i));
-            }
+        int i = 0;
+        int n = s.length();
+        while (i < n && s.charAt(i) == ' ') {
+            i++;
         }
-        if ( sb.length() == 0) {
+        if ( n == i) {
             return 0;
         }
-        if ( Long.parseLong(sb.toString()) > 0) {
-            return Integer.MAX_VALUE;
+        int sign = 1;
+        if ( s.charAt(i) == '+' || s.charAt(i) == '-') {
+            sign = s.charAt(i) == '-' ? -1 : 1;
+            i++;
         }
-        else if ( Long.parseLong(sb.toString()) < 0) {
-            return Integer.MIN_VALUE;
+
+        long result = 0;
+        while (i < n && Character.isDigit(s.charAt(i))) {
+            result = result * 10 + (s.charAt(i) - '0');
+
+            if ( sign == 1 && result > Integer.MAX_VALUE) {
+                return Integer.MAX_VALUE;
+            }
+            else if ( sign == -1 && -result < Integer.MIN_VALUE) {
+                return Integer.MIN_VALUE;
+            }
+            i++;
         }
-        else {
-            return (int) Long.parseLong(sb.toString());
-        }
+        return (int) (sign * result);
     }
 }
