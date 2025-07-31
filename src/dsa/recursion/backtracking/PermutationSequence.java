@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+//  finding the K-th permutation of the sequence of numbers from 1 to n
 public class PermutationSequence {
     public static void main(String[] args) {
         int a = 3;
@@ -15,7 +16,7 @@ public class PermutationSequence {
             sb.append(i);
             i++;
         }
-        boolean[] seen = new boolean[sb.toString().toCharArray().length];
+        boolean[] seen = new boolean[sb.toString().length()];
         backtrack(sb.toString().toCharArray(),seen, new ArrayList<>(), sb.delete(0,sb.length()), k, nth);
         System.out.println(sb.toString());
     }
@@ -23,8 +24,8 @@ public class PermutationSequence {
         if ( temp.size() == str.length) {
             nth[0]++;
             if ( nth[0] == k ) {
-                for ( int i = 0; i < temp.size(); i++) {
-                    sb.append(temp.get(i));
+                for (Character character : temp) {
+                    sb.append(character);
                 }
 //                sb.append(temp);
                 return;
@@ -37,7 +38,7 @@ public class PermutationSequence {
             seen[i] = true;
             temp.add(str[i]);
             backtrack(str, seen, temp, sb, k, nth);
-            temp.remove(temp.size() - 1);
+            temp.removeLast();
             seen[i] = false;
         }
     }

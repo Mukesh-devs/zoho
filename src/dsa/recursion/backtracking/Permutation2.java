@@ -9,7 +9,7 @@ import java.util.Set;
 public class Permutation2 {
     static Set<List<Integer>> uni = new HashSet<>();
     public static void main(String[] args) {
-        int[] arr = {1,2,2};
+        int[] arr = {1,2,3};
         boolean[] seen = new boolean[arr.length];
         List<List<Integer>> res = new ArrayList<>();
         backtrack(arr,new ArrayList<>(),res,seen);
@@ -30,7 +30,7 @@ public class Permutation2 {
             seen[i] = true;
             temp.add(arr[i]);
             backtrack(arr, temp, res,seen);
-            temp.remove(temp.size() - 1);
+            temp.removeLast();
             seen[i] = false;
         }
     }

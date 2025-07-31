@@ -26,7 +26,7 @@ public class TreeMain {
         tree.insert(15);
         tree.insert(30);
 
-        tree.PreOrder(tree.root);
+        tree.Inorder(tree.root);
 
     }
 }

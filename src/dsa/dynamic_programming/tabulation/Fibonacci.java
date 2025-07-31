@@ -1,4 +1,4 @@
-package dsa.dynamic_programming;
+package dsa.dynamic_programming.tabulation;
 
 import java.util.Arrays;
 
