@@ -1,9 +1,11 @@
 package dsa.dynamic_programming;
 
+import java.util.Arrays;
+
 public class Fibonacci {
 
     public static void main(String[] args) {
-        int n = 70;
+        int n = 9;
         long[] dp = new long[n+1];
         dp[0] = 0;
         dp[1] = 1;
@@ -11,5 +13,6 @@ public class Fibonacci {
             dp[i] = dp[i-1] + dp[i-2];
         }
         System.out.println(dp[n]);
+        System.out.println(Arrays.toString(dp));
     }
 }

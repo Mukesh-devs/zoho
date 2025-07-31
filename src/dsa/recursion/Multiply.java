@@ -8,7 +8,10 @@ public class Multiply {
         System.out.println(n + " * " +m+" = "+(n*m));
         multiply(n,m+1);
     }
+    static void multiplytable(int num) {
+        multiply(num,1);
+    }
     public static void main(String[] args) {
-        multiply(2,1);
+        multiplytable(5);
     }
 }

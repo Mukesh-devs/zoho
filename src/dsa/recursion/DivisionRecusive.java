@@ -8,6 +8,6 @@ public class DivisionRecusive {
         return 1 + divide(dd-dr,dr);
     }
     public static void main(String[] args) {
-        System.out.println(divide(8,2));
+        System.out.println(divide(11,7));
     }
 }
