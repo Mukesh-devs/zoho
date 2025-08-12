@@ -3,7 +3,7 @@ package dsa.recursion;
 public class LinearSearch {
     public static void main(String[] args) {
         int[] arr = {1,3,4,6,72,2};
-        int target = 22;
+        int target = 2;
         search(arr,0,target);
 
     }
