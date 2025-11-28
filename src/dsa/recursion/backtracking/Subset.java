@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Subset {
     public static void main(String[] args) {
-        int[] num = {1,2,3};
+        int[] num = {1,1,3};
         List<Integer> temp = new ArrayList<>();
         List<List<Integer>> res= new ArrayList<>();
         subset(0,num,temp,res);
@@ -19,7 +19,7 @@ public class Subset {
         }
         temp.add(num[index]);
         subset(index + 1,num, temp, res);
-        temp.removeLast();
+        temp.remove(temp.size() - 1);
         subset(index + 1,num, temp, res);
     }
 }

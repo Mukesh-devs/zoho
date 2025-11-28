@@ -28,7 +28,9 @@ public class NQueens {
         dfs(0, res, board, leftrow, lowerdiagonal, upperdiagonal);
         return res;
     }
-
+//00 01 02
+//10 11 12
+//20 21 22
     static void dfs(int col, List<List<String>> res, char[][] board, int[] leftRow, int[] lowerDiagonal, int[] upperDiagonal ) {
         if ( col == board.length) {
             res.add(store(board));
