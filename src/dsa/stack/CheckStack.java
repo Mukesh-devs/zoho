@@ -2,7 +2,7 @@ package dsa.stack;
 
 public class CheckStack {
     public static void main(String[] args) {
-        Stack<String> stack = new Stack();
+        Stack<String> stack = new Stack<>();
         stack.push("Apple");
         stack.push("banana");
         System.out.println(stack.peek());
